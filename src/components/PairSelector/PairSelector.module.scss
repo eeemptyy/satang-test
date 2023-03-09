@@ -1,0 +1,19 @@
+.buttonGroup {
+    padding: 12px;
+    display: flex;
+    justify-content: center;
+}
+
+.buttonGroup {
+    user-select: none;
+
+    .buttonWrapper {
+        width: 100%;
+    }
+
+    .button {
+        width: 100%;
+        padding: 12px;
+        height: 56px;
+    }
+}
