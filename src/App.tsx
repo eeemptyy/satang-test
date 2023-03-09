@@ -28,7 +28,7 @@ const App = (): JSX.Element => {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/market" element={<Market />} />
-              <Route path="/market/:pairs" element={<Market />} />
+              <Route path="/market/:pair" element={<Market />} />
             </Routes>
           </Header>
         </Layout>
