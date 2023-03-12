@@ -22,3 +22,12 @@
         justify-content: center;
     }
 }
+
+.homePage {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    padding: 24px;
+    margin: 0 auto;
+    max-width:900px;
+}
