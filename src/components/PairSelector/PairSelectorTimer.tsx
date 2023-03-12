@@ -11,7 +11,7 @@ type RouteParams = {
   pair: string;
 };
 
-const PairSelector = (): JSX.Element => {
+const PairSelectorTimer = (): JSX.Element => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { pair = 'BTC_THB' } = useParams<RouteParams>();
@@ -57,4 +57,4 @@ const PairSelector = (): JSX.Element => {
   );
 };
 
-export { PairSelector };
+export { PairSelectorTimer };

@@ -1,13 +1,12 @@
-import { ITicker } from '../../@types/ticker';
-import { useSelector } from 'react-redux';
 import { Card as CardComp } from 'antd';
 import styles from './Card.module.scss';
+import { ISimpleTicker } from '../../@types/simpleTicker';
 
-const Card = (): JSX.Element => {
-  const ticker: ITicker | undefined = useSelector(
-    (state: { ticker: ITicker }) => state.ticker
-  );
+interface Props {
+  ticker?: ISimpleTicker;
+}
 
+const Card = ({ ticker }: Props): JSX.Element => {
   return (
     <>
       {ticker ? (
