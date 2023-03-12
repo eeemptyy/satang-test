@@ -2,10 +2,9 @@ import { useSelector } from 'react-redux';
 import { Card } from './Card';
 import { IMessageEvent, w3cwebsocket as w3socket } from 'websocket';
 import { useEffect, useState } from 'react';
+import { socketUrl } from '../../constants/urls';
 
-const url = 'wss://ws.satangcorp.com/ws/!miniTicker@arr@3000ms';
-
-const socket = new w3socket(url);
+const socket = new w3socket(socketUrl);
 
 enum MessageKeyMap {
   EventType = 'e',

@@ -1,12 +1,11 @@
 import { call, put } from 'redux-saga/effects';
 import { ITicker } from '../@types/ticker';
 import { ActionType } from './actions';
+import { tickerUrl } from '../constants/urls';
 
 const tickerFetch = (pair: string): Promise<ITicker> => {
   // return new Promise<ITicker>((resolve, reject) => { return {} });
-  return fetch(`https://satangcorp.com/api/v3/ticker/24hr?symbol=${pair}`).then(
-    (res) => res.json()
-  );
+  return fetch(`${tickerUrl}?symbol=${pair}`).then((res) => res.json());
 };
 
 export function* workGetTicker(action: { type: string; pair: string }) {

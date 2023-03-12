@@ -35,9 +35,22 @@ Start the server for Window
 ```bash
   npm run start:window
 ```
+## Configuration
+
+#### To update list of supported pair for the app
+
+```
+src\constants\listedPairs.ts
+```
+
+#### To update fetch URL
+
+```
+src\constants\urls.ts
+```
 ## Tech Stack
 
-**Client:** ReactJS, Redux-Saga, Ant Design, SCSS
+**Client:** ReactJS, Redux-Saga, Ant Design, SCSS, Typescript, Websocket
 
 **Server:** Node
 
