@@ -29,6 +29,11 @@ export const getTicker = (pair: string) => ({
   pair: pair,
 });
 
+export const setPair = (pair: string) => ({
+  type: ActionType.SET_PAIR,
+  pair: pair,
+});
+
 export const startTimer = () => ({ type: ActionType.START_INTERVAL });
 
 export const stopTimer = () => ({ type: ActionType.STOP_INTERVAL });

@@ -4,4 +4,4 @@ interface ISimpleTicker {
   volume: string;
 }
 
-export type { ISimpleTicker }
+export type { ISimpleTicker };
