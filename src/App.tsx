@@ -6,6 +6,7 @@ import { Menu } from './components/Menu';
 import Home from './pages/HomePage';
 import Market from './pages/MarketPage';
 import styles from './App.module.scss';
+import MarketSocket from './pages/MarketSocketPage';
 
 const menus: IMenuItem[] = [
   {
@@ -15,6 +16,10 @@ const menus: IMenuItem[] = [
   {
     path: '/market',
     label: 'Market',
+  },
+  {
+    path: '/market_socket',
+    label: 'Market Socket',
   },
 ];
 
@@ -29,6 +34,8 @@ const App = (): JSX.Element => {
               <Route path="/" element={<Home />} />
               <Route path="/market" element={<Market />} />
               <Route path="/market/:pair" element={<Market />} />
+              <Route path="/market_socket" element={<MarketSocket />} />
+              <Route path="/market_socket/:pair" element={<MarketSocket />} />
             </Routes>
           </Header>
         </Layout>

@@ -3,26 +3,26 @@ import Title from 'antd/es/typography/Title';
 import { memo } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { CardTimer } from '../components/Card/CardTimer';
-import { PairSelectorTimer } from '../components/PairSelector/PairSelectorTimer';
+import { CardSocket } from '../components/Card/CardSocket';
+import { PairSelectorSocket } from '../components/PairSelector/PairSelectorSocket';
 import { stopTimer } from '../store/actions';
 import styles from './page.module.scss';
 
-const Market = (): JSX.Element => {
+const MarketSocket = (): JSX.Element => {
   const dispatch = useDispatch();
   dispatch(stopTimer());
 
   return (
     <div className={styles.marketPage}>
-      <Title level={2}>Exchange Market (with Timer)</Title>
+      <Title level={2}>Exchange Market (with Socket)</Title>
 
       <Row className={styles.contentContainer}>
         <Col span={12}>
-          <PairSelectorTimer />
+          <PairSelectorSocket />
         </Col>
         <Col span={12}>
           <div className={styles.cardContainer}>
-            <CardTimer />
+            <CardSocket />
           </div>
         </Col>
       </Row>
@@ -30,4 +30,4 @@ const Market = (): JSX.Element => {
   );
 };
 
-export default memo(Market);
+export default memo(MarketSocket);

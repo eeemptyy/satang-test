@@ -21,7 +21,7 @@ const Menu = ({ menus }: MenuProps): JSX.Element => {
       defaultSelectedKeys={defaultMenuKey}
       items={menus.map((menu: IMenuItem) => {
         return {
-          key: menu.label.toLowerCase(),
+          key: menu.label.toLowerCase().replaceAll(' ', '_'),
           label: <Link to={menu.path}>{menu.label}</Link>,
         };
       })}

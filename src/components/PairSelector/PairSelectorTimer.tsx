@@ -1,5 +1,5 @@
 import { Radio, RadioChangeEvent, Space } from 'antd';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 
@@ -11,19 +11,22 @@ type RouteParams = {
   pair: string;
 };
 
-const PairSelector = (): JSX.Element => {
+const PairSelectorTimer = (): JSX.Element => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { pair = 'BTC_THB' } = useParams<RouteParams>();
-  const [selectedPair, setSelectedPair] = useState<string>(pair);
+  const { pair } = useParams<RouteParams>();
+  const selectedPair =
+    useSelector((state: { pair: string }) => state.pair) || pair || 'BTC_THB';
+
   const isRunning: boolean = useSelector(
     (state: { isRunning: boolean }) => state.isRunning
   );
 
-  useEffect(() => {
-    navigate(`/market/${selectedPair}`);
-    dispatch(getTicker(selectedPair));
-  }, [selectedPair, navigate, dispatch]);
+  const handlePairChange = (event: RadioChangeEvent) => {
+    const newPair = event.target.value;
+    dispatch(getTicker(newPair));
+    navigate(`/market/${newPair}`);
+  };
 
   const handleClick = useCallback(() => {
     if (!isRunning) {
@@ -31,12 +34,16 @@ const PairSelector = (): JSX.Element => {
     }
   }, [dispatch, isRunning]);
 
+  useEffect(() => {
+    dispatch(getTicker(selectedPair));
+    navigate(`/market/${selectedPair}`);
+    handleClick();
+  }, []);
+
   return (
     <>
       <Radio.Group
-        onChange={(e: RadioChangeEvent) => {
-          setSelectedPair(e.target.value);
-        }}
+        onChange={handlePairChange}
         value={selectedPair}
         className={styles.buttonGroup}
       >
@@ -57,4 +64,4 @@ const PairSelector = (): JSX.Element => {
   );
 };
 
-export { PairSelector };
+export { PairSelectorTimer };
